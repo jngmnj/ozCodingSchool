@@ -1,72 +1,90 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>설문조사</title>
-    <meta name="description" content="간단한 설문조사 양식입니다.">
+    <title>설문조사양식_지정민</title>
+    <style>
+        fieldset { border: none; }
+    </style>
 </head>
 <body>
-    <!-- 헤더 섹션 -->
     <header>
         <h1>설문조사 양식</h1>
+        <nav>
+            <ul>
+                <li><a href="../day02_HTML/work02.html">개인 정보</a></li>
+                <li><a href="./work03-01.html">설문 문항</a></li>
+                <li><a href="./work03-02.html">기타</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- 네비게이션 섹션 -->
-    <nav>
-        <ul>
-            <li><a href="#section1">개인 정보</a></li>
-            <li><a href="#section2">설문 문항</a></li>
-            <li><a href="#section3">기타</a></li>
-        </ul>
-    </nav>
-
-    <!-- 메인 콘텐츠 섹션 -->
     <main>
-        <form action="submit_survey.php" method="post">
-            <!-- 개인 정보 섹션 -->
-            <section id="section1">
+        <form action="">
+            <fieldset>
                 <h2>개인 정보</h2>
-                <label for="name">이름:</label>
-                <input type="text" id="name" name="name" required>
-                <br>
-                <label for="age">나이:</label>
-                <input type="number" id="age" name="age" min="1" max="100">
-                <br>
-                <label for="gender">성별:</label>
-                <select id="gender" name="gender">
-                    <option value="male">남성</option>
-                    <option value="female">여성</option>
-                    <option value="other">기타</option>
-                </select>
-                <br>
-                <label for="email">이메일:</label>
-                <input type="email" id="email" name="email" required>
-            </section>
-
-            <!-- 설문 문항 섹션 -->
-            <section id="section2">
-                <h2>설문 문항</h2>
-                <p>당신의 관심사를 선택해주세요:</p>
                 <ul>
-                    <li><label><input type="checkbox" name="interest" value="sports"> 스포츠</label></li>
-                    <li><label><input type="checkbox" name="interest" value="music"> 음악</label></li>
-                    <li><label><input type="checkbox" name="interest" value="movies"> 영화</label></li>
+                    <li>
+                        <label for="user_name">이름 : </label>
+                        <input id="user_name" type="text" required placeholder="" />
+                    </li>
+                    <li>
+                        <label for="user_age">나이 : </label>
+                        <input id="user_age" type="text" required placeholder="" />
+                    </li>
+                    <li>
+                        <label for="user_gender">성별 : </label>
+                        <select name="user_gender" id="user_gender">
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="user_email">이메일 : </label>
+                        <input id="user_email" type="email" required />
+                    </li>
                 </ul>
-
-                <br>
-                <label for="feedback">피드백:</label>
-                <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
-            </section>
-
-            <!-- 양식 제출 버튼 -->
-            <input type="submit" value="제출">
+            </fieldset>
+            <fieldset>
+                <h2>설문 문항</h2>
+                <div>
+                    <p>당신의 관심사를 선택해주세요:</p>
+                    <ul>
+                        <li><label><input type="checkbox" name="hobbies" value="sports"> 운동</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="travel"> 여행</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="reading"> 독서</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="movies"> 영화/TV 시청</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="gaming"> 게임</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>당신의 취미를 선택해주세요:</p>
+                    <ul>
+                        <li><label><input type="checkbox" name="hobbies" value="sports"> 운동</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="travel"> 여행</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="reading"> 독서</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="movies"> 영화/TV 시청</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="gaming"> 게임</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>자주 이용하는 소셜 미디어를 선택해주세요:</p>
+                    <ul>
+                        <li><label><input type="checkbox" name="social_media" value="facebook"> 페이스북</label></li>
+                        <li><label><input type="checkbox" name="social_media" value="instagram"> 인스타그램</label></li>
+                        <li><label><input type="checkbox" name="social_media" value="youtube"> 유튜브</label></li>
+                        <li><label><input type="checkbox" name="social_media" value="twitter"> 트위터</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>피드백: </p>
+                    <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+                </div>
+            </fieldset>
+            <button type="submit">제출</button>
         </form>
+        ©️ 2025 설문조사 양식 by 지정민
     </main>
-
-    <!-- 푸터 섹션 -->
-    <footer>
-        <p>&copy; 2024 설문조사 양식</p>
-    </footer>
 </body>
-	</html>
+</html>
+
