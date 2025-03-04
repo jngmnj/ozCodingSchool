@@ -1,0 +1,52 @@
+
+body {
+    font-family: 'SUIT Variable', sans-serif;
+    background: #000;box-sizing: border-box;
+}
+.mb-1 {margin-bottom: 1rem;}
+.mb-2 {margin-bottom: 2rem;}
+.mb-3 {margin-bottom: 3rem;}
+.mb-4 {margin-bottom: 4rem;}
+.text-center {text-align: center;}
+
+.sign-up {display: flex;align-items:center; justify-content: center; gap: 8rem;height: 100vh;}
+.sign-up-logo {}
+.sign-up-main {background-color: #fff;border-radius: 32px;padding: 48px;width: 40%;height: 60%;overflow: auto;scrollbar-width: none;}
+
+.sign-up-title {}
+.sign-up-title h1 {font-size: 3rem;font-weight: 800;text-align: center;margin: 0;}
+.sign-up-title h3 {text-align: center;margin: 0;}
+
+/* form */
+.sign-up-form {}
+.sign-up-input {display: flex;flex-direction: column;gap: 12px;}
+.sign-up-input input {padding: 1rem;border-radius: 1rem;outline: none;border: 1px solid #b3b3b3;font-size: 1rem;}
+.sign-up-input input[type="radio"] {}
+input[type="checkbox"] {}
+.sign-up-gender {display: flex;align-items: center;gap: 1rem;padding: 1rem 0 ;}
+.sign-up-gender label {}
+
+/* custom radio */
+.custom-radio {display: inline-flex;align-items: center;cursor: pointer;margin-right: 10px;position: relative;padding-left: 32px;}
+.custom-radio::before {content: "";width: 18px;height: 18px;border: 2px solid #2be286;border-radius: 50%;position: absolute;left: 0;top: 50%;transform: translateY(-50%);background-color: transparent;}
+.custom-radio::after {content: "";width: 12px;height: 12px;background: #2be286;border-radius: 50%;position: absolute;left: 5px;top: 50%;transform: translateY(-50%) scale(0);transition: 0.2s ease-in-out;}
+input[type="radio"] {display: none;}
+input[type="radio"]:checked+.custom-radio::after {transform: translateY(-50%) scale(1);}
+
+/* custom checkbox */
+input[type="checkbox"] {display: none;}
+.custom-checkbox {display: flex;align-items: center;gap: 8px;color: #333;}
+.custom-checkbox span {display: inline-block;width: 20px;height: 20px;border: 2px solid #333;border-radius: 4px;position: relative;vertical-align: middle;margin-right: 8px;border: 1px solid #999;box-sizing: border-box;flex-shrink: 0;}
+input:checked + .custom-checkbox>span {background: #2be286 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff" width="12px" height="12px"><path d="M1.73 12.91l6.37 6.37L22.79 4.59" stroke="%23fff" stroke-width="2" fill="none"/></svg>') center center no-repeat;border: none;}
+
+.sign-up-main .terms {border-top: 1px solid #eee;padding: 2rem 0;}
+.sign-up-main .terms span {}
+.sign-up-main .terms ul {line-height: 1.2;padding: 0;}
+.sign-up-main .terms ul li {list-style: none;margin-bottom: 8px;}
+.sign-up-main .terms ul li label {}
+
+
+
+.sign-up-main button[type="submit"] {background: #2be286;border-radius: 1rem;padding: 1.5rem 2rem;width:100%; font-size: 1.5em;color: #000;border: none;}
+.sign-up-link {color: #000;text-decoration: none;margin: 0 auto;font-weight: 600;position: relative;}
+.sign-up-link::after {background:#98ffcb;position: absolute;content: '';width: 100%;height: 12px;bottom: -4px;left: 0;mix-blend-mode: multiply;}
