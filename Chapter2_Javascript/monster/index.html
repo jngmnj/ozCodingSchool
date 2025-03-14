@@ -17,6 +17,9 @@
 
         let attackDamage = parseInt(prompt('몬스터에게 가할 데미지를 입력하세요'));
         let attackCount = 0;
+        if(isNaN(attackDamage) || attackDamage <= 0) {
+            alert("데미지를 잘못 입력하여 게임을 취소합니다. ");
+        }
 
         if(attackDamage > 0) {
             while(monsterHP > 0) {
