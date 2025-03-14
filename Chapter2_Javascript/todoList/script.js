@@ -29,10 +29,10 @@ const deleteTodo = (e) => {
   const li = e.target.parentNode;
 	const span = li.querySelector("span");
 
-	const newTodos = todoList.filter((todo) => todo.text !== span.textContent);
-	todoList = newTodos;
+	todoList = todoList.filter((todo) => todo.text !== span.textContent);
 	saveTodo();
-  ul.removeChild(li);
+  li.remove();
+  // ul.removeChild(li);
 };
 
 const saveTodo = () => {
