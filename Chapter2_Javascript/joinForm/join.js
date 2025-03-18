@@ -8,7 +8,7 @@ form.addEventListener('submit', (e) => {
     // console.log(data);
 
     // 유효성 검사
-    if (data.id < 6) {
+    if (data.id.length < 6) {
         alert('아이디는 6자 이상이어야 합니다.');
         return;
     }
