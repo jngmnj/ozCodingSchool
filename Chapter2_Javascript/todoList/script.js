@@ -13,26 +13,29 @@ const toggleCheckTodo = (e) => {
 		span.style.textDecoration = "none";
 	}
 
-	// localStorage에서 해당 todo를 찾아서 checked값을 변경
+	// todo를 찾아서 checked값을 변경: id로 찾아야되겟다. 
 	const newTodos = todoList.map((todo) => {
-		if (todo.text === span.textContent) {
-			todo.checked = e.target.checked;
-			console.log("todo", todo);
+		if (todo.todoId === Number(li.dataset.id)) { 
+			// todo.todoDone = !todo.todoDone; // 원본데이터를 직접수정하면 안된다. map이 새로운 배열을 반환하더라도 원본을 변경함
+      return {
+        ...todo,
+        todoDone: !todo.todoDone,
+      };
 		}
 		return todo;
 	});
+  console.log("newTodos", newTodos); 
   todoList = newTodos;
 	saveTodo();
 }
 
 const deleteTodo = (e) => {
   const li = e.target.parentNode;
-	const span = li.querySelector("span");
 
-	todoList = todoList.filter((todo) => todo.text !== span.textContent);
+  console.log("삭제됨")
+	todoList = todoList.filter((todo) => todo.todoId !== Number(li.dataset.id));
 	saveTodo();
   li.remove();
-  // ul.removeChild(li);
 };
 
 const saveTodo = () => {
@@ -40,42 +43,51 @@ const saveTodo = () => {
 };
 
 const addTodo = (inputValue, isChecked) => {
+  const toBeAdded = {
+    todoId: new Date().getTime(),
+    text: inputValue, 
+    todoDone: isChecked
+  }
+	todoList.push(toBeAdded);
+	saveTodo();
+	// console.log("todoList", todoList);
+  drawTodo(toBeAdded);
+};
+
+const drawTodo = (todo) => {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const checkbox = document.createElement("input");
 
-  span.textContent = inputValue;
+  console.log("todo", todo);
+  span.textContent = todo.text;
   li.style.cssText = "display: block;";
   li.draggable = true;
   li.className = "draggable";
-	
-	// checkbox 추가
-	checkbox.type = "checkbox";
-	checkbox.className = "checkbox";
-	checkbox.style.cssText = "margin-right: 10px;";
-	if(isChecked) {
-		checkbox.checked = true;
-		span.style.textDecoration = "line-through";
-	}
-	li.append(checkbox);
-	checkbox.addEventListener("change", toggleCheckTodo);
+  li.dataset.id = todo.todoId; // dataset을 통해 data-id 속성 추가. 단축API
+
+  // checkbox 추가
+  checkbox.type = "checkbox";
+  checkbox.className = "checkbox";
+  checkbox.style.cssText = "margin-right: 10px;";
+  if (todo.todoDone) {
+    checkbox.checked = true;
+    span.style.textDecoration = "line-through";
+  }
+  li.append(checkbox);
+  checkbox.addEventListener("change", toggleCheckTodo);
 
   // delete button 추가
   const deleteBtn = document.createElement("button");
   deleteBtn.className = "delete-btn";
   deleteBtn.textContent = "삭제";
-   deleteBtn.addEventListener("click", deleteTodo);
+  deleteBtn.addEventListener("click", deleteTodo);
   li.append(span);
   li.append(deleteBtn);
 
   ul.append(li);
-
-	todoList.push({ text: inputValue, checked: isChecked });
-	saveTodo();
-	console.log("todoList", todoList);
 };
-
-document.getElementById("add-btn").addEventListener("click", function () {
+document.getElementById("add-btn").addEventListener("click", () => {
 	const inputValue = input.value;
 	  if (!inputValue) {
       alert("할일을 입력하세요!");
@@ -89,11 +101,11 @@ document.getElementById("add-btn").addEventListener("click", function () {
 // 심화1) 입력한 TO-DO가 Local Storage에 저장되어 새로 고침 후에도 유지되도록 해보세요.
 const loadTodos = () => {
   const loadedTodos = localStorage.getItem("todoList_ls");
-  if (loadedTodos) {
-    const parsedTodos = JSON.parse(loadedTodos);
-    parsedTodos.forEach((todo) => {
-      addTodo(todo.text, todo.checked);
-    });
+  if (loadedTodos !== null) {
+    const parsedTodos = loadedTodos ? JSON.parse(loadedTodos) : [];
+    // todoList = parsedTodos;
+    todoList = Array.isArray(parsedTodos) ? parsedTodos : [];
+    parsedTodos.forEach((todo) => drawTodo(todo));
   }
 };
 
@@ -133,10 +145,15 @@ ul.addEventListener("drop", ({ target }) => {
       target.after(currentItem);
     }
 
-		// todoList 순서 변경
-		const temp = todoList[currentIndex];
-		todoList[currentIndex] = todoList[indexDrop];
-		todoList[indexDrop] = temp;
+		// todoList 순서 변경: 원본 배열을 수정 -> 권장X
+		// const temp = todoList[currentIndex];
+		// todoList[currentIndex] = todoList[indexDrop];
+		// todoList[indexDrop] = temp;
+
+    const newTodos = [...todoList];
+    const movedItem = newTodos.splice(currentIndex, 1)[0]; // 기존 위치에서 삭제
+    newTodos.splice(indexDrop, 0, movedItem); // 새로운 위치에 추가
+    todoList = newTodos; // 새로운 배열로 교체
 		saveTodo();
   }
 });
