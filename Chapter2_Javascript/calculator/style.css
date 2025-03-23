@@ -1,0 +1,100 @@
+@import url('https://fonts.cdnfonts.com/css/digital-numbers');
+@import url('https://fonts.cdnfonts.com/css/br-shape');
+/* 모든 요소의 기본 여백 제거 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML과 Body의 기본 설정 */
+html,
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.calculator-container {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    background: #f1d1d5;
+    border: 4px outset #b09597;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 8px;
+}
+.calculator-container .display-wrapper {
+    height: 40px;
+    border: 2px inset #b09597;
+    background: #cbb2b6;
+    flex-grow: 1;
+    padding: .5rem;
+    border-radius: 8px;
+}
+.calculator-container .display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 4px;
+    border: 1px inset #686666;
+    background: #a1aea1;
+    padding: .5rem;
+    font-size: 3rem;
+    font-family: 'Digital Numbers', sans-serif;
+}
+.calculator-container .buttons {
+    display: flex;
+    flex-grow: 4;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.calculator-container .buttons .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-basis: calc(25% - 8px);
+    font-size: 2rem;
+    outline: none;
+    transition: .1s ease-in-out;
+    background: #f4d9dc;
+    border: 2px outset #b09597;
+    box-shadow: 0 4px 4px #b09597;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'BR Shape', sans-serif;
+}
+.calculator-container .buttons .button.zero {
+    flex-basis: calc(50% - 6px);
+}
+
+.calculator-container .buttons .button:hover {
+    background: #f4d9dc;
+}
+.calculator-container .buttons .button:active {
+    background: #f4d9dc;
+    box-shadow: 0 2px 2px #b09597;
+    transform: translateY(1px);
+}
+.calculator-container .buttons .button.number,
+.calculator-container .buttons .button.point {
+    background: #ddabb3;
+}
+.calculator-container .buttons .button.number:hover,
+.calculator-container .buttons .button.point:hover {
+    background: #e3b1b9;
+}
+.calculator-container .buttons .button.number:active,
+.calculator-container .buttons .button.point:active {
+    background: #f14a68;
+}
