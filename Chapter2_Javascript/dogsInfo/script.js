@@ -1,19 +1,17 @@
 // https://dog.ceo/api/breeds/list/all
-const apiRandomDogs = "https://dog.ceo/api/breeds/image/random/100";
+const apiRandomDogs = "https://dog.ceo/api/breeds/image/random/40";
 const apiAllBreeds = "https://dog.ceo/api/breeds/list/all";
 const request1 = new XMLHttpRequest();
 const request2 = new XMLHttpRequest();
-
-// request.open("GET", "https://dog.ceo/api/breeds/list/all");
-// request.send();
-
-
 
 const header = document.querySelector("#header");
 const main = document.querySelector("#main");
 const input = document.querySelector("#filter-text"); 
 const button = document.querySelector("#filter-button");
+const resetBtn = document.querySelector("#filter-reset");
 const select = document.querySelector("#filter-select");
+const moreBtn = document.querySelector(".btn-more");
+const totopBtn = document.querySelector(".btn-totop");
 
 const currentDogs = [];
 
@@ -62,6 +60,20 @@ button.addEventListener("click", function (e) {
     filteredDogs.forEach((item) => makeDogList(item));
 });
 
+resetBtn.addEventListener("click", function () {
+    main.innerHTML = "";
+    request1.open("GET", apiRandomDogs);
+    request1.addEventListener("load", function () {
+        const response = JSON.parse(request1.response);
+        currentDogs.length = 0;
+        response.message.forEach((item) => {
+            currentDogs.push(item);
+            makeDogList(item);
+        });
+    });
+    request1.send();
+
+});
 select.addEventListener("change", function (e) {
     main.innerHTML = "";
     const selectedBreed = e.target.value;
@@ -70,4 +82,27 @@ select.addEventListener("change", function (e) {
     let filteredDogs = currentDogs.filter((item) => item.indexOf(selectedBreed) !== -1);
 
     filteredDogs.forEach((item) => makeDogList(item));
+});
+
+moreBtn.addEventListener("click", function () {
+    request1.open("GET", apiRandomDogs);
+    request1.addEventListener("load", function () {
+        const response = JSON.parse(request1.response);
+        response.message.forEach((item) => {
+            currentDogs.push(item);
+            makeDogList(item);
+        });
+    });
+    request1.send();
+});
+
+window.addEventListener("scroll", function () {
+    console.log(window.screenY);
+    window.scrollY > 100
+      ? totopBtn.classList.add("show")
+      : totopBtn.classList.remove("show");
+});
+
+totopBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });
