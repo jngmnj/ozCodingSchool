@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import TodoListItem from './components/TodoListItem';
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -8,12 +9,14 @@ function App() {
   ]);
 
   return (
-    <div >
+    <div>
       <ul>
-        <li></li>
+        {todoList.map((todo) => (
+          <TodoListItem key={todo.id} todo={todo}/>
+        ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default App
