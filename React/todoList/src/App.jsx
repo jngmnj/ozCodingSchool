@@ -6,8 +6,8 @@ import TodoListItem from './components/TodoListItem';
 
 function App() {
   const [todoList, setTodoList] = useState([
-    {id: 0, content: "밥먹기"},
-    {id: 1, content: "코딩 공부하기"},
+    { id: 0, content: "밥먹기", isDone: true },
+    { id: 1, content: "코딩 공부하기", isDone: false },
   ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTodo, setCurrentTodo] = useState(null);
