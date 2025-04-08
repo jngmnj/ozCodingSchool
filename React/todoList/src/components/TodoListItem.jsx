@@ -1,8 +1,21 @@
-const TodoListItem = ({todo, setTodoList}) => {
+import { PiPencilDuotone } from "react-icons/pi";
+const TodoListItem = ({ todo, setTodoList, setIsModalOpen, setCurrentTodo }) => {
   const handleDelete = () => {
-    setTodoList(prev => prev.filter(item => item.id !== todo.id));
-  }
-  return <li>{todo.content}<button onClick={handleDelete}>삭제</button><button onClick={handleDelete}>삭제</button></li>;
-}
+    setTodoList((prev) => prev.filter((item) => item.id !== todo.id));
+  };
 
-export default TodoListItem
+  return (
+    <li>
+      {todo.content}
+      <button onClick={() => {
+        setIsModalOpen(true);
+        setCurrentTodo(todo)
+      }}>
+        <PiPencilDuotone />
+      </button>
+      <button onClick={handleDelete}>삭제</button>
+    </li>
+  );
+};
+
+export default TodoListItem;

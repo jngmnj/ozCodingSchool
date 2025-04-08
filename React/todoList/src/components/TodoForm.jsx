@@ -1,16 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 
-const TodoForm = ({ setTodoList }) => {
+const TodoForm = ({ setTodoList, currentTodo, setIsModalOpen }) => {
   const [inputValue, setInputValue] = useState("");
+  useEffect(() => {
+    if (currentTodo) {
+      setInputValue(currentTodo.content);
+    }
+  }, [currentTodo]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodoList((prev) => [...prev, { id: v4(), content: inputValue }]);
+    if (inputValue.trim() === "") return;
+    if (currentTodo) {
+      setTodoList((prev) =>
+        prev.map((item) =>
+          item.id === currentTodo.id ? { ...item, content: inputValue } : item
+        )
+      );
+      // alert("성공적으로 변경되었습니다.");
+      setIsModalOpen(false);
+    } else {
+      setTodoList((prev) => [...prev, { id: v4(), content: inputValue }]);
+    }
     setInputValue("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex justify-center items-center">
       <input
         type="text"
         value={inputValue}
