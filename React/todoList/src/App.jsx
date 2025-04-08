@@ -6,7 +6,7 @@ import TodoListItem from './components/TodoListItem';
 function App() {
   const [todoList, setTodoList] = useState([
     {id: 0, content: "밥먹기"},
-    {id: 0, content: "코딩 공부하기"},
+    {id: 1, content: "코딩 공부하기"},
   ]);
 
 
@@ -15,7 +15,7 @@ function App() {
       <TodoForm setTodoList={setTodoList} />
       <ul>
         {todoList.map((todo) => (
-          <TodoListItem key={todo.id} todo={todo} />
+          <TodoListItem key={todo.id} setTodoList={setTodoList} todo={todo} />
         ))}
       </ul>
     </div>
