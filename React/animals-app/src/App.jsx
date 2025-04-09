@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Layout from './Layout';
@@ -7,8 +6,6 @@ import Main from './page/Main';
 import Search from './page/Search';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Routes>
