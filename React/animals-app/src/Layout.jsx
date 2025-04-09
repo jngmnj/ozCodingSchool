@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
     <>
-      <header>
+      <header className='header'>
         <h1>💚 동물 조아 💚</h1>
       </header>
       <main>
