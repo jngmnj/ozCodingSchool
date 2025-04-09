@@ -8,6 +8,26 @@
   padding: 1rem 2rem;
   font-size: 2rem;
   box-shadow: 0 4px 16px #00000016;
+  display: flex;
+  justify-content: space-between;
+}
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.search-form input {
+  width: 200px;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid #111;
+}
+.search-form button {
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  font-family: 'SUIT Variable', sans-serif;
+  background: #1cda85;
+  color: #111;
+  padding: 0.5rem 1rem;
 }
 main {
   max-width: 768px;
