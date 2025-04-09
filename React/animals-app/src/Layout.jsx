@@ -10,7 +10,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>all rights reserved to OZ</footer>
+      <footer className='footer'>all rights reserved to OZ</footer>
     </>
   );
 }

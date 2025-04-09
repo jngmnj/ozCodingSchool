@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 import { data } from "../assets/data/data";
 
 const Main = () => {
   return (
-    <ul>
+    <ul className="animal-list">
       {data.map((item) => (
-        <li key={item.id}>
+        <li className="item" key={item.id}>
+          <div className="img-box">
             <img src={item.img} alt={item.name} />
-            <span>{item.name}</span>
+          </div>
+          <div className="name">{item.name}</div>
         </li>
       ))}
     </ul>
   );
-}
+};
 
-export default Main
+export default Main;
