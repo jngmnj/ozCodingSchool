@@ -1,11 +1,14 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import SearchForm from './components/SearchForm';
 
 const Layout = () => {
+
   return (
     <>
       <header className='header'>
-        <h1>💚 동물 조아 💚</h1>
+        <Link to="/"><h1>💚 동물 조아 💚</h1></Link>
+        <SearchForm />
       </header>
       <main>
         <Outlet />
