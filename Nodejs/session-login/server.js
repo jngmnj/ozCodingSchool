@@ -34,7 +34,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  const userInfo = users.find((el) => el.user_id === req.session.user?.user_id);
+  const userInfo = users.find((el) => el.user_id === req.session.user);
   return res.json(userInfo);
 });
 
