@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.delete("/", (req, res) => {
   res.clearCookie("test-cookie", {
+    maxAge: 1000 * 60 * 60 * 24,
     httpOnly: true,
     secure: true,
     sameSite: "None",
