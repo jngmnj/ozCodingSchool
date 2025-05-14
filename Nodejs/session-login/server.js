@@ -39,9 +39,14 @@ app.get("/", (req, res) => {
 });
 
 app.delete("/", (req, res) => {
-  req.session.destroy();
-  req.clearCookie("session_id", { path: "/" });
-  return res.json({ success: true, message: "로그아웃 성공" });
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).json({ success: false, message: "로그아웃 실패" });
+    }
+    // destroy() 메서드로 세션을 삭제한 후 쿠키도 삭제
+    res.clearCookie("session_id", { path: "/" });
+    return res.json({ success: true, message: "로그아웃 성공" });
+  });
 });
 
 app.post("/", (req, res) => {
@@ -54,9 +59,8 @@ app.post("/", (req, res) => {
   if (!userInfo) {
     return res.status(401).json({ success: false, message: "로그인 실패" });
   }
-  req.session.user = userInfo; // 세션에 사용자 정보 저장
+  req.session.user = userInfo.user_id; // 세션에 사용자 id 저장
   return res.send("로그인 성공! 세션 생성 완료!");
-  // return res.json({ success: true, userInfo });
 });
 
 app.listen(3000, () => {
