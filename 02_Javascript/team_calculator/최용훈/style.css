@@ -1,0 +1,88 @@
+/* 모든 요소의 기본 여백 제거 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.flex {
+	display : flex;
+}
+
+/* HTML과 Body의 기본 설정 */
+html, body {
+height: 100%;
+}
+
+.windowOp{
+	gap : 5px;
+	align-items: end;
+	margin-bottom: 5px;
+}
+.windowOpBtn{
+	width : 20px;
+	height : 20px;
+	border-radius: 30px;
+	background-color: blue;	
+}
+.closeBtn{
+	background-color:rgb(236,108,93);
+}
+.miniBtn{
+	background: rgb(242,193,79);
+}
+.fullBtn{
+	background: rgb(97,199,85);
+}
+
+div.calculator-container{
+	border: 1px solid green;	
+	height : 600px; 
+	width : 450px;
+	margin : 50px auto;
+	padding : 10px 15px;
+	flex-direction: column;	
+}
+
+.displayConrtol{
+	height : 5%;
+}
+
+.display{
+	height : 30%;
+	width : 100%;
+	border: 1px solid red;		
+	text-align: right;
+	justify-content: end;
+	align-items: center;
+	padding : 0px 30px;
+	font-size : 50px;
+}
+
+.buttons{
+	height : 70%;
+	width : 100%;
+	border: 1px solid blue;	
+	margin-top : 15px;
+	flex-wrap: wrap;		
+	
+}
+
+.button{
+	flex-basis: 25%;
+	font-size : 2rem;
+}
+
+.zero{
+	flex-basis: 50%;
+}
+
+.button:hover{
+	background-color: rgb(223, 218, 218);
+}
+
+.button:active{
+	background-color: rgb(171, 42, 42);
+	color: white;
+}
+
