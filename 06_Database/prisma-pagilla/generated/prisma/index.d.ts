@@ -28118,8 +28118,8 @@ export namespace Prisma {
 
   export type film_commentCreateInput = {
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     customer: customerCreateNestedOneWithoutFilm_commentInput
     film_post: film_postCreateNestedOneWithoutFilm_commentInput
     mention?: mentionCreateNestedManyWithoutFilm_commentInput
@@ -28130,8 +28130,8 @@ export namespace Prisma {
     post_id: number
     customer_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     mention?: mentionUncheckedCreateNestedManyWithoutFilm_commentInput
   }
 
@@ -28159,8 +28159,8 @@ export namespace Prisma {
     post_id: number
     customer_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
   }
 
   export type film_commentUpdateManyMutationInput = {
@@ -28180,7 +28180,7 @@ export namespace Prisma {
 
   export type film_postCreateInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film_comment?: film_commentCreateNestedManyWithoutFilm_postInput
     film?: filmCreateNestedOneWithoutFilm_postInput
@@ -28191,7 +28191,7 @@ export namespace Prisma {
     post_id?: number
     film_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film_comment?: film_commentUncheckedCreateNestedManyWithoutFilm_postInput
     post_reaction?: post_reactionUncheckedCreateNestedManyWithoutFilm_postInput
@@ -28220,7 +28220,7 @@ export namespace Prisma {
     post_id?: number
     film_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
   }
 
@@ -28334,7 +28334,7 @@ export namespace Prisma {
   }
 
   export type mentionCreateInput = {
-    created_at: Date | string
+    created_at?: Date | string
     film_comment: film_commentCreateNestedOneWithoutMentionInput
     customer: customerCreateNestedOneWithoutMentionInput
     notification?: notificationCreateNestedOneWithoutMentionInput
@@ -28342,7 +28342,7 @@ export namespace Prisma {
 
   export type mentionUncheckedCreateInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     comment_id: number
     mentioned_customer_id: number
     notification?: notificationUncheckedCreateNestedOneWithoutMentionInput
@@ -28365,7 +28365,7 @@ export namespace Prisma {
 
   export type mentionCreateManyInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     comment_id: number
     mentioned_customer_id: number
   }
@@ -28383,7 +28383,7 @@ export namespace Prisma {
 
   export type notificationCreateInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
     mention: mentionCreateNestedOneWithoutNotificationInput
@@ -28395,7 +28395,7 @@ export namespace Prisma {
     mentioner_id: number
     mention_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
   }
@@ -28424,7 +28424,7 @@ export namespace Prisma {
     mentioner_id: number
     mention_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
   }
@@ -28511,7 +28511,7 @@ export namespace Prisma {
 
   export type post_reactionCreateInput = {
     reaction_type?: $Enums.reaction_type | null
-    created_at: Date | string
+    created_at?: Date | string
     customer: customerCreateNestedOneWithoutPost_reactionInput
     film_post: film_postCreateNestedOneWithoutPost_reactionInput
   }
@@ -28521,7 +28521,7 @@ export namespace Prisma {
     reaction_type?: $Enums.reaction_type | null
     post_id: number
     customer_id: number
-    created_at: Date | string
+    created_at?: Date | string
   }
 
   export type post_reactionUpdateInput = {
@@ -28544,7 +28544,7 @@ export namespace Prisma {
     reaction_type?: $Enums.reaction_type | null
     post_id: number
     customer_id: number
-    created_at: Date | string
+    created_at?: Date | string
   }
 
   export type post_reactionUpdateManyMutationInput = {
@@ -32328,8 +32328,8 @@ export namespace Prisma {
 
   export type film_commentCreateWithoutCustomerInput = {
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     film_post: film_postCreateNestedOneWithoutFilm_commentInput
     mention?: mentionCreateNestedManyWithoutFilm_commentInput
   }
@@ -32338,8 +32338,8 @@ export namespace Prisma {
     comment_id?: number
     post_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     mention?: mentionUncheckedCreateNestedManyWithoutFilm_commentInput
   }
 
@@ -32354,14 +32354,14 @@ export namespace Prisma {
   }
 
   export type mentionCreateWithoutCustomerInput = {
-    created_at: Date | string
+    created_at?: Date | string
     film_comment: film_commentCreateNestedOneWithoutMentionInput
     notification?: notificationCreateNestedOneWithoutMentionInput
   }
 
   export type mentionUncheckedCreateWithoutCustomerInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     comment_id: number
     notification?: notificationUncheckedCreateNestedOneWithoutMentionInput
   }
@@ -32378,7 +32378,7 @@ export namespace Prisma {
 
   export type notificationCreateWithoutCustomerInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
     mention: mentionCreateNestedOneWithoutNotificationInput
@@ -32388,7 +32388,7 @@ export namespace Prisma {
     notification_id?: number
     mention_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
   }
@@ -32405,7 +32405,7 @@ export namespace Prisma {
 
   export type post_reactionCreateWithoutCustomerInput = {
     reaction_type?: $Enums.reaction_type | null
-    created_at: Date | string
+    created_at?: Date | string
     film_post: film_postCreateNestedOneWithoutPost_reactionInput
   }
 
@@ -32413,7 +32413,7 @@ export namespace Prisma {
     reaction_id?: number
     reaction_type?: $Enums.reaction_type | null
     post_id: number
-    created_at: Date | string
+    created_at?: Date | string
   }
 
   export type post_reactionCreateOrConnectWithoutCustomerInput = {
@@ -32814,7 +32814,7 @@ export namespace Prisma {
 
   export type film_postCreateWithoutFilmInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film_comment?: film_commentCreateNestedManyWithoutFilm_postInput
     post_reaction?: post_reactionCreateNestedManyWithoutFilm_postInput
@@ -32823,7 +32823,7 @@ export namespace Prisma {
   export type film_postUncheckedCreateWithoutFilmInput = {
     post_id?: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film_comment?: film_commentUncheckedCreateNestedManyWithoutFilm_postInput
     post_reaction?: post_reactionUncheckedCreateNestedManyWithoutFilm_postInput
@@ -33119,7 +33119,7 @@ export namespace Prisma {
 
   export type film_postCreateWithoutFilm_commentInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film?: filmCreateNestedOneWithoutFilm_postInput
     post_reaction?: post_reactionCreateNestedManyWithoutFilm_postInput
@@ -33129,7 +33129,7 @@ export namespace Prisma {
     post_id?: number
     film_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     post_reaction?: post_reactionUncheckedCreateNestedManyWithoutFilm_postInput
   }
@@ -33140,14 +33140,14 @@ export namespace Prisma {
   }
 
   export type mentionCreateWithoutFilm_commentInput = {
-    created_at: Date | string
+    created_at?: Date | string
     customer: customerCreateNestedOneWithoutMentionInput
     notification?: notificationCreateNestedOneWithoutMentionInput
   }
 
   export type mentionUncheckedCreateWithoutFilm_commentInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     mentioned_customer_id: number
     notification?: notificationUncheckedCreateNestedOneWithoutMentionInput
   }
@@ -33252,8 +33252,8 @@ export namespace Prisma {
 
   export type film_commentCreateWithoutFilm_postInput = {
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     customer: customerCreateNestedOneWithoutFilm_commentInput
     mention?: mentionCreateNestedManyWithoutFilm_commentInput
   }
@@ -33262,8 +33262,8 @@ export namespace Prisma {
     comment_id?: number
     customer_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     mention?: mentionUncheckedCreateNestedManyWithoutFilm_commentInput
   }
 
@@ -33279,7 +33279,7 @@ export namespace Prisma {
 
   export type post_reactionCreateWithoutFilm_postInput = {
     reaction_type?: $Enums.reaction_type | null
-    created_at: Date | string
+    created_at?: Date | string
     customer: customerCreateNestedOneWithoutPost_reactionInput
   }
 
@@ -33287,7 +33287,7 @@ export namespace Prisma {
     reaction_id?: number
     reaction_type?: $Enums.reaction_type | null
     customer_id: number
-    created_at: Date | string
+    created_at?: Date | string
   }
 
   export type post_reactionCreateOrConnectWithoutFilm_postInput = {
@@ -33550,8 +33550,8 @@ export namespace Prisma {
 
   export type film_commentCreateWithoutMentionInput = {
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
     customer: customerCreateNestedOneWithoutFilm_commentInput
     film_post: film_postCreateNestedOneWithoutFilm_commentInput
   }
@@ -33561,8 +33561,8 @@ export namespace Prisma {
     post_id: number
     customer_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
   }
 
   export type film_commentCreateOrConnectWithoutMentionInput = {
@@ -33610,7 +33610,7 @@ export namespace Prisma {
 
   export type notificationCreateWithoutMentionInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
     customer: customerCreateNestedOneWithoutNotificationInput
@@ -33620,7 +33620,7 @@ export namespace Prisma {
     notification_id?: number
     mentioner_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
   }
@@ -33731,14 +33731,14 @@ export namespace Prisma {
   }
 
   export type mentionCreateWithoutNotificationInput = {
-    created_at: Date | string
+    created_at?: Date | string
     film_comment: film_commentCreateNestedOneWithoutMentionInput
     customer: customerCreateNestedOneWithoutMentionInput
   }
 
   export type mentionUncheckedCreateWithoutNotificationInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     comment_id: number
     mentioned_customer_id: number
   }
@@ -33894,7 +33894,7 @@ export namespace Prisma {
 
   export type film_postCreateWithoutPost_reactionInput = {
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film_comment?: film_commentCreateNestedManyWithoutFilm_postInput
     film?: filmCreateNestedOneWithoutFilm_postInput
@@ -33904,7 +33904,7 @@ export namespace Prisma {
     post_id?: number
     film_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
     film_comment?: film_commentUncheckedCreateNestedManyWithoutFilm_postInput
   }
@@ -34809,13 +34809,13 @@ export namespace Prisma {
     comment_id?: number
     post_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
   }
 
   export type mentionCreateManyCustomerInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     comment_id: number
   }
 
@@ -34823,7 +34823,7 @@ export namespace Prisma {
     notification_id?: number
     mention_id: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     is_read: boolean
     read_at: Date | string
   }
@@ -34832,7 +34832,7 @@ export namespace Prisma {
     reaction_id?: number
     reaction_type?: $Enums.reaction_type | null
     post_id: number
-    created_at: Date | string
+    created_at?: Date | string
   }
 
   export type rentalCreateManyCustomerInput = {
@@ -35020,7 +35020,7 @@ export namespace Prisma {
   export type film_postCreateManyFilmInput = {
     post_id?: number
     content: string
-    created_at: Date | string
+    created_at?: Date | string
     updated_at: Date | string
   }
 
@@ -35058,7 +35058,7 @@ export namespace Prisma {
 
   export type mentionCreateManyFilm_commentInput = {
     mention_id?: number
-    created_at: Date | string
+    created_at?: Date | string
     mentioned_customer_id: number
   }
 
@@ -35085,15 +35085,15 @@ export namespace Prisma {
     comment_id?: number
     customer_id: number
     content: string
-    created_at: Date | string
-    updated_at: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
   }
 
   export type post_reactionCreateManyFilm_postInput = {
     reaction_id?: number
     reaction_type?: $Enums.reaction_type | null
     customer_id: number
-    created_at: Date | string
+    created_at?: Date | string
   }
 
   export type film_commentUpdateWithoutFilm_postInput = {
