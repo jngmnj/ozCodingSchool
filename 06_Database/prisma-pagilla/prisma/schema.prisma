@@ -1,6 +1,7 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  // output   = "../generated/prisma"
+  output = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -140,7 +141,7 @@ model film_comment {
   customer_id Int
   content     String
   created_at  DateTime  @db.Timestamp(6) @default(now())
-  updated_at  DateTime  @db.Timestamp(6) @updatedAt
+  updated_at  DateTime?  @db.Timestamp(6) @updatedAt
   customer    customer  @relation(fields: [customer_id], references: [customer_id], onDelete: NoAction, onUpdate: NoAction)
   film_post   film_post @relation(fields: [post_id], references: [post_id], onDelete: NoAction, onUpdate: NoAction)
   mention     mention[]
@@ -151,7 +152,7 @@ model film_post {
   film_id       Int
   content       String
   created_at    DateTime        @db.Timestamp(6) @default(now())
-  updated_at    DateTime        @db.Timestamp(6)
+  updated_at    DateTime?        @db.Timestamp(6)
   film_comment  film_comment[]
   film          film?           @relation(fields: [film_id], references: [film_id], onDelete: NoAction, onUpdate: NoAction)
   post_reaction post_reaction[]
