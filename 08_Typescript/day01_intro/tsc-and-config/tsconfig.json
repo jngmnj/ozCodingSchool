@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2016" /* ES2016에 맞춘 Javscript 생성하라  */,
+    "module": "commonjs" /* CommonJS 모듈 시스템 사용 */,
+    "esModuleInterop": true /* ES6 모듈을 CommonJS로 변환할 때 호환성 유지 */,
+    "forceConsistentCasingInFileNames": true /* 파일 이름의 대소문자 일관성 유지 */,
+    "strict": true /* 엄격한 타입 검사 활성화 */,
+    "skipLibCheck": true /* 라이브러리 파일 검사 건너뛰기(컴파일 시간 단축) */,
+    "outDir": "dist" /* 컴파일된 파일을 저장 할 디렉토리 */,
+    "noUncheckedIndexedAccess": true /* 인덱스 액세스에 대한 체크를 활성화 */,
+    // "lib": ["es2016","dom"] /* 사용할 라이브러리 지정, 정말 필요할때만 사용하기 */
+  },
+  "include": ["src/**/*"] /* 컴파일할 파일의 경로 지정 */,
+  "exclude": ["node_modules", "dist"] /* 컴파일에서 제외할 파일의 경로 지정 */
+}
