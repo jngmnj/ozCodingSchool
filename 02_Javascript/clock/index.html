@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="now">
+        <div class="date"></div>
+        <div class="time"></div>
+    </div>
+    <button class="stop">멈춰!</button>
+    <script>
+        const nowDate = document.querySelector('.date');
+        const time = document.querySelector('.time');
+        let isActive = false;
+        function showTime() {
+            const date = new Date();
+
+            // 날짜
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            // 시간
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            nowDate.textContent = `${year}년 ${month}월 ${day}일`;
+            time.textContent = `${hours}시 ${minutes}분 ${seconds}초`;
+            isActive = true;
+        }
+        let timerId = setInterval(showTime, 1000);
+        // clearInterval(showTime);
+
+        const button = document.querySelector('.stop');
+        button.addEventListener('click', () => {
+            if(isActive) {
+                clearInterval(timerId);
+                isActive = false;
+            } else {
+                timerId = setInterval(showTime, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

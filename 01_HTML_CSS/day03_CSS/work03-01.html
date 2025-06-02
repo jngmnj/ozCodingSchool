@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 페이지를 10초마다 새로고침 한다는 의미 -->
+    <!-- <meta http-equiv="refresh" content="10;"> -->
+    <meta name="description" content="설문조사 양식">
+    <meta name="keywords" content="설문조사, 설문조사 양식">
+    <meta name="author" content="지정민">
+    <meta name="robots" content="index, follow">
+    <title>설문조사양식_지정민</title>
+    <style>
+        body {margin: 0;}
+        header { background-color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; align-items: center;}
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-right: 1rem; }
+        nav ul li a { text-decoration: none; color: #000;font-weight: 500;}
+        main { padding: 2rem; background: #eee;}
+        fieldset { border: none; background-color: #fff;border-radius: 24px;margin-bottom: 24px;padding: 24px 36px;}
+        button { background-color: #46a83d; color: #fff; padding: 1rem 2rem; border: none; border-radius: 24px; cursor: pointer; font-size: 24px;margin: auto;margin-bottom: 24px;}
+        fieldset ul { list-style: none; padding: 0; margin-bottom: 24px;}
+        fieldset ul li { margin-bottom: 0.5rem; }
+        fieldset label { font-weight: 500; }
+        fieldset input, fieldset select { padding: 0.5rem; border-radius: 8px; border: 1px solid #ccc; }
+        .text-center{text-align: center;}
+        .text-right {text-align: right;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>설문조사 양식</h1>
+        <nav>
+            <ul>
+                <li><a href="../day02_HTML/work02.html">개인 정보</a></li>
+                <li><a href="./work03-01.html">설문 문항</a></li>
+                <li><a href="./work03-02.html">기타</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="">
+            <fieldset>
+                <h2>개인 정보</h2>
+                <ul>
+                    <li>
+                        <label for="user_name">이름 : </label>
+                        <input id="user_name" type="text" required placeholder="" />
+                    </li>
+                    <li>
+                        <label for="user_age">나이 : </label>
+                        <input id="user_age" type="text" required placeholder="" />
+                    </li>
+                    <li>
+                        <label for="user_gender">성별 : </label>
+                        <select name="user_gender" id="user_gender">
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="user_email">이메일 : </label>
+                        <input id="user_email" type="email" required />
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <h2>설문 문항</h2>
+                <div>
+                    <p>당신의 관심사를 선택해주세요:</p>
+                    <ul>
+                        <li><label><input type="checkbox" name="hobbies" value="sports"> 운동</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="travel"> 여행</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="reading"> 독서</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="movies"> 영화/TV 시청</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="gaming"> 게임</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>당신의 취미를 선택해주세요:</p>
+                    <ul>
+                        <li><label><input type="checkbox" name="hobbies" value="sports"> 운동</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="travel"> 여행</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="reading"> 독서</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="movies"> 영화/TV 시청</label></li>
+                        <li><label><input type="checkbox" name="hobbies" value="gaming"> 게임</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>자주 이용하는 소셜 미디어를 선택해주세요:</p>
+                    <ul>
+                        <li><label><input type="checkbox" name="social_media" value="facebook"> 페이스북</label></li>
+                        <li><label><input type="checkbox" name="social_media" value="instagram"> 인스타그램</label></li>
+                        <li><label><input type="checkbox" name="social_media" value="youtube"> 유튜브</label></li>
+                        <li><label><input type="checkbox" name="social_media" value="twitter"> 트위터</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>피드백: </p>
+                    <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+                </div>
+            </fieldset>
+            <div class="text-center"><button type="submit">제출</button></div>
+        </form>
+        <div class="text-right">©️ 2025 설문조사 양식 by 지정민</div>
+    </main>
+</body>
+</html>
+
